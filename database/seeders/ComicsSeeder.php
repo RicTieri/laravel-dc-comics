@@ -23,8 +23,8 @@ class ComicsSeeder extends Seeder
                 'series' => $comic['series'],
                 'sale_date' => $comic['sale_date'],
                 'type' => $comic['type'],
-                'artists' => $comic['artists'],
-                'writers' => $comic['writers'],
+                'artists' => json_encode($comic['artists']),
+                'writers' => json_encode($comic['writers']),
             ]);
         }
     }
