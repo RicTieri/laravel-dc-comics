@@ -21,7 +21,15 @@ DC Comics
             <h5 class="card-title">{{$comic['title']}}</h5>
             <p>{{$comic['series']}}</p>
             <p>{{$comic['description']}}</p>
-            <p>{{$comic['price']}}</p>
+            <h6>Artisti:</h6>
+            <ul>
+                @forelse ($comic['artists'] as $artist)
+                    <li>{{ $artist }}</li>
+                @empty
+                    Nessun artista trovato...
+                @endforelse
+            </ul>
+            <h5 class="text-end">{{$comic['price']}}</h5>
           </div>
         </div>
       </div>
