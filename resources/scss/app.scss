@@ -1,0 +1,101 @@
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700&display=swap');
+
+header{
+  .search-icon{
+    height: 20px;
+  }
+}
+
+.jumbotron {
+  background: url('../assets/img/jumbotron.jpg');
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+}
+
+main{
+  background-color: $main-bg;
+  div.card {
+    background-color: transparent;
+    img{
+    aspect-ratio: 1/1;
+  }}
+
+    .wrapper {
+    width: $base-width;
+    position: relative;
+    margin: 0 auto;
+    .section-title{
+      position: absolute;
+      text-transform: uppercase;
+      background-color: $accent-color;
+      top: -20px;
+      left: 0;
+      padding: .25rem 1rem;
+    }
+    
+  }
+}
+
+section.banner{
+  background-color: $accent-color;
+
+  ul{
+      list-style: none;
+      height: 100px;
+      li{
+        div{
+          height: 50px;
+          width: 50px;
+          margin-right: 1rem;
+          img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+}
+
+footer{
+
+  .upper-footer{
+    background-image: url(../assets/img/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  
+  
+
+        a{
+          color: $light;
+          text-decoration: none;
+        }
+        
+        .text-accent{
+          color: $accent-color;
+        }
+      .bg-logo{
+        // background-image: url(../assets/img/dc-logo-bg.png);
+        scale: 1.2;
+      }
+  }
+  
+  .down-footer{
+    background-color: $footer-bg;
+
+    button{
+      background-color: transparent;
+
+      &.my-accent{
+        color: $accent-color;
+      }
+    }
+  }
+}
