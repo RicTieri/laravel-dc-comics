@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Guest route
-Route::get('/', [GuestComicPageController::class, 'index'])->name('pages.home');
-Route::get('/{comic}', [GuestComicPageController::class, 'show'])->name('pages.comicShow');
+Route::get('/', [GuestComicPageController::class, 'index'])->name('guest.index');
+Route::get('/{comic}', [GuestComicPageController::class, 'show'])->name('guest.comic.show');
 
 // Admin route
-Route::get('/', [AdminComicPageController::class, 'index'])->name('pages.home');
-Route::get('/create', [AdminComicPageController::class, 'create'])->name('pages.comicCreate');
-Route::get('/{comic}', [AdminComicPageController::class, 'show'])->name('pages.comicShow');
-Route::post('/', [AdminComicPageController::class, 'store'])->name('pages.comicStore');
+Route::get('/admin', [AdminComicPageController::class, 'index'])->name('admin.comic.index');
+Route::post('/admin', [AdminComicPageController::class, 'store'])->name('admin.comic.store');
+Route::get('/admin/create', [AdminComicPageController::class, 'create'])->name('admin.comic.create');
+Route::get('/admin/{comic}', [AdminComicPageController::class, 'show'])->name('admin.comic.show');

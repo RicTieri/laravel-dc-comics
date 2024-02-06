@@ -14,7 +14,7 @@ class ComicPageController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        return view('pages.home', compact('comics'));
+        return view('pages.guest.index', compact('comics'));
     }
 
     /**
@@ -40,7 +40,7 @@ class ComicPageController extends Controller
     {
         $comic->artists = json_decode($comic->artists);
         $comic->writers = json_decode($comic->writers);
-        return view('pages.comicShow', compact('comic'));
+        return view('pages.guest.comicShow', compact('comic'));
     }
 
     /**
