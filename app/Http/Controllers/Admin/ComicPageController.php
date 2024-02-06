@@ -43,9 +43,11 @@ class ComicPageController extends Controller
      */
     public function show(Comic $comic)
     {
+        $comic = Comic::findOrFail($id);
+        // dd($comic);
         $comic->artists = json_decode($comic->artists);
         $comic->writers = json_decode($comic->writers);
-        return view('pages.admin.comicShow', compact('comic'));
+        return view('pages.guest.comicShow', compact('comic'));
     }
 
     /**

@@ -112,8 +112,8 @@
                     </button>
                 </div>
             </form>
-            <a href="{{ route('admin.comic.index') }}">
-                <button class="btn btn-dark">Login</button>
+            <a href="{{ route('guest.comic.create') }}">
+                <button class="btn btn-dark bold me-3">+</button>
             </a>
         </div>
     </nav>

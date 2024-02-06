@@ -13,12 +13,16 @@
     </div>
     <section class="comics">
         <div class="container py-5 ">
+            <a href="{{ route('guest.comic.create') }}">
+                <button class="btn btn-dark bold me-3">+</button>
+            </a>
             <div class="row py-5">
                 @foreach ($comics as $comic)
                     <div class="col-2 mb-3">
-                        <a href="{{ route('admin.comic.show', $comic) }}">
+                        <a href="{{ route('admin.comic.show', $comic->id) }}">
                             <div class="card p-0 h-100 border border-0">
-                                <img src="{{ $comic['thumb'] }}" class="card-img-top rounded-2" alt="{{ $comic['series'] }}">
+                                <img src="{{ $comic['thumb'] }}" class="card-img-top rounded-2"
+                                    alt="{{ $comic['series'] }}">
                                 <div class="card-body text-white text-capitalize px-0">
                                     <h5 class="card-title">{{ $comic['series'] }}</h5>
                                 </div>
