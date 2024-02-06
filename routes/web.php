@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Guest\ComicPageController as ComicPageController;
+use App\Http\Controllers\Guest\ComicPageController as GuestComicPageController;
+use App\Http\Controllers\Admin\ComicPageController as AdminComicPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ComicPageController::class, 'index'])->name('pages.home');
-Route::get('/{comic}', [ComicPageController::class, 'show'])->name('pages.comicShow');
+// Guest route
+Route::get('/', [GuestComicPageController::class, 'index'])->name('pages.home');
+Route::get('/{comic}', [GuestComicPageController::class, 'show'])->name('pages.comicShow');
+
+// Admin route
+Route::get('/', [AdminComicPageController::class, 'index'])->name('pages.home');
+Route::get('/create', [AdminComicPageController::class, 'create'])->name('pages.comicCreate');
+Route::get('/{comic}', [AdminComicPageController::class, 'show'])->name('pages.comicShow');
+Route::post('/', [AdminComicPageController::class, 'store'])->name('pages.comicStore');
