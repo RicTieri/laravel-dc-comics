@@ -26,5 +26,5 @@ Route::get('/admin', [AdminComicPageController::class, 'index'])->name('admin.co
 Route::post('/admin', [AdminComicPageController::class, 'store'])->name('admin.comic.store');
 Route::get('/admin/create', [AdminComicPageController::class, 'create'])->name('admin.comic.create');
 Route::get('/admin/{comic}', [AdminComicPageController::class, 'show'])->name('admin.comic.show');
-Route::get('/admin/{comic}/edit', [AdminComicPageController::class, 'show'])->name('admin.comic.edit');
+Route::get('/admin/{comic}/edit', [AdminComicPageController::class, 'edit'])->name('admin.comic.edit');
 Route::put('/admin/{comic}', [AdminComicPageController::class, 'update'])->name('admin.comic.update');

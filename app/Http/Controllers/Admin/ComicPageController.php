@@ -31,9 +31,12 @@ class ComicPageController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        // dd($request);
-        $data['artists'] = json_encode($data['artists']);
-        $data['writers'] = json_encode($data['writers']);
+        $artists = [];
+        $artists[] = $data['artists'];
+        $writers = [];
+        $writers[] = $data['writers'];
+        $data['artists'] = json_encode($artists);
+        $data['writers'] = json_encode($writers);
         $comic = Comic::create($data);
 
         return redirect()->route('admin.comic.show', $comic);
@@ -56,7 +59,7 @@ class ComicPageController extends Controller
      */
     public function edit(Comic $comic)
     {
-        return view('pages.admin.comicEdit', $comic);
+        return view('pages.admin.comicEdit', compact('comic'));
     }
 
     /**
@@ -67,7 +70,7 @@ class ComicPageController extends Controller
         $data = $request->all();
         $comic->update($data);
 
-        return redirect()->route('admin.comic.show', $comic);
+        return redirect()->route('admin.comic.show', compact('comic'));
     }
 
     /**

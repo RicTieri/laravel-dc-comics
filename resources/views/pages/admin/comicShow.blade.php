@@ -22,18 +22,16 @@
                             <p><strong>Serie:</strong> {{ $comic['series'] }}</p>
                             <h6>Descrizione:</h6>
                             <p>{{ $comic['description'] }}</p>
-                            @if (is_array($comic['artist']))
-                                <h6>Artisti:</h6>
-                                <ul>
-                                    @forelse ($comic['artists'] as $artist)
-                                        <li>{{ $artist }}</li>
-                                    @empty
-                                        Nessun artista trovato...
-                                    @endforelse
-                                </ul>
-                            @endif
+                            <h6>Artisti:</h6>
+                            <ul>
+                                @forelse ($comic['artists'] as $artist)
+                                    <li>{{ $artist }}</li>
+                                @empty
+                                    Nessun artista trovato...
+                                @endforelse
+                            </ul>
                             <h5 class="text-end">Prezzo: {{ $comic['price'] }}</h5>
-                            <a href="{{ route('admin.comic.create', $comic) }}">
+                            <a href="{{ route('admin.comic.edit', $comic) }}">
                                 <button class="btn btn-primary">
                                     Modifica
                                 </button>
