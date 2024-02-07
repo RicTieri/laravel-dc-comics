@@ -13,8 +13,8 @@
     </div>
     <section class="comics">
         <div class="container py-5 ">
-            <a href="{{ route('guest.comic.create') }}">
-                <button class="btn btn-dark bold me-3">+</button>
+            <a href="{{ route('admin.comic.create') }}">
+                <button class="btn btn-primary bold me-3 fw-bolder">+</button>
             </a>
             <div class="row py-5">
                 @foreach ($comics as $comic)

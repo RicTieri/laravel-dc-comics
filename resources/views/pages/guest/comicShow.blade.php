@@ -23,19 +23,19 @@
                             <p>{{ $comic['description'] }}</p>
                             <h6>Artisti:</h6>
                             <ul>
-                                @isset($comic['artist'])
+                                @if ($comic['artist'] != null)
                                     @forelse ($comic['artists'] as $artist)
                                         <li>{{ $artist }}</li>
                                     @empty
                                         Nessun artista trovato...
                                     @endforelse
                                 @endisset
-                            </ul>
-                            <h5 class="text-end">{{ $comic['price'] }}</h5>
-                        </div>
+                        </ul>
+                        <h5 class="text-end">{{ $comic['price'] }}</h5>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 @endsection

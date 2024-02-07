@@ -18,20 +18,26 @@
                     <div class="card p-0 h-100 border border-0">
                         <img src="{{ $comic['thumb'] }}" class="card-img-top rounded-2" alt="{{ $comic['series'] }}">
                         <div class="card-body text-white text-capitalize px-0">
-                            <h5 class="card-title">{{ $comic['title'] }}</h5>
-                            <p>{{ $comic['series'] }}</p>
+                            <h5 class="card-title">Titolo: {{ $comic['title'] }}</h5>
+                            <p><strong>Serie:</strong> {{ $comic['series'] }}</p>
+                            <h6>Descrizione:</h6>
                             <p>{{ $comic['description'] }}</p>
-                            <h6>Artisti:</h6>
-                            <ul>
-                                @isset($comic['artist'])
+                            @if (is_array($comic['artist']))
+                                <h6>Artisti:</h6>
+                                <ul>
                                     @forelse ($comic['artists'] as $artist)
                                         <li>{{ $artist }}</li>
                                     @empty
                                         Nessun artista trovato...
                                     @endforelse
-                                @endisset
-                            </ul>
-                            <h5 class="text-end">{{ $comic['price'] }}</h5>
+                                </ul>
+                            @endif
+                            <h5 class="text-end">Prezzo: {{ $comic['price'] }}</h5>
+                            <a href="{{ route('admin.comic.create', $comic) }}">
+                                <button class="btn btn-primary">
+                                    Modifica
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

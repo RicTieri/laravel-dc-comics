@@ -30,12 +30,13 @@ class ComicPageController extends Controller
      */
     public function store(Request $request)
     {
-        $formData = $request->all();
-        dd($request);
+        $data = $request->all();
+        // dd($request);
+        $data['artists'] = json_encode($data['artists']);
+        $data['writers'] = json_encode($data['writers']);
+        $comic = Comic::create($data);
 
-        $comic = Comic::create($formData);
-
-        return redirect()->route('admin.comic.show', $comic->id);
+        return redirect()->route('admin.comic.show', $comic);
     }
 
     /**
@@ -43,27 +44,30 @@ class ComicPageController extends Controller
      */
     public function show(Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
+        // $comic = Comic::findOrFail($id);
         // dd($comic);
         $comic->artists = json_decode($comic->artists);
         $comic->writers = json_decode($comic->writers);
-        return view('pages.guest.comicShow', compact('comic'));
+        return view('pages.admin.comicShow', compact('comic'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('pages.admin.comicEdit', $comic);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+        $comic->update($data);
+
+        return redirect()->route('admin.comic.show', $comic);
     }
 
     /**

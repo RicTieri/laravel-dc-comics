@@ -14,8 +14,9 @@
     <section class="comics container-fluid p-5">
         <div class="row justify-content-center">
             <div class="col-10">
-                <form action="{{ route('admin.comic.store') }}" method="post" class="m-5 text-white">
+                <form action="{{ route('admin.comic.update') }}" method="post" class="m-5 text-white">
                     @csrf
+                    @method('put')
                     <div class="mb-3">
                         <label for="title" class="form-label text-capitalize">title</label>
                         <input type="text" class="form-control" id="title" name="title">
@@ -34,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="sale_date" class="form-label text-capitalize">sale date</label>
-                        <input type="date" class="form-control" id="sale_date" name="sale_date">
+                        <input type="text" class="form-control" id="sale_date" name="sale_date">
                     </div>
                     <div class="mb-3">
                         <label for="type" class="form-label text-capitalize">type</label>

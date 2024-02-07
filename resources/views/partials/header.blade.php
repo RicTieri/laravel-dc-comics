@@ -112,9 +112,6 @@
                     </button>
                 </div>
             </form>
-            <a href="{{ route('guest.comic.create') }}">
-                <button class="btn btn-dark bold me-3">+</button>
-            </a>
         </div>
     </nav>
 </header>
