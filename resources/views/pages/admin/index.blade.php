@@ -13,8 +13,9 @@
     </div>
     <section class="comics">
         <div class="container py-5 ">
-            <a href="{{ route('admin.comic.create') }}">
-                <button class="btn btn-primary bold me-3 fw-bolder">+</button>
+            <a href="{{ route('admin.comic.create') }}" class="text-white text-uppercase text-decoration-none">
+                <button class="btn btn-primary bold me-2 fw-bolder">+</button>
+                Add new
             </a>
             <div class="row py-5">
                 @foreach ($comics as $comic)
@@ -30,10 +31,6 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="col-12 pb-3 text-center">
-                    <button type="button" class="btn btn-primary rounded-0 text-uppercase px-5 fw-bolder">Load
-                        More</button>
-                </div>
             </div>
         </div>
     </section>

@@ -55,24 +55,33 @@
 @endphp
 
 <header>
-    <div class="container-fluid bg-primary ">
-        <ul class="container navbar-nav d-flex flex-row justify-content-end">
-            <li class="nav-item me-5 pe-5">
-                <a class="nav-link active text-uppercase text-white me-5 pe-5" aria-current="page" href=""><small>dc
-                        power&#8482; visa&#174;</small></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-uppercase text-white" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <small>
-                        additional dc sites
-                    </small>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">link 1</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="bg-primary">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <div class="">
+                <a href="{{ route('admin.comic.index') }}" class="text-white text-decoration-none me-3">Admin\index</a>
+                <a href="{{ route('guest.comic.index') }}" class="text-white text-decoration-none">Guest\index</a>
+            </div>
+
+            <ul class="navbar-nav d-flex flex-row ">
+                <li class="nav-item me-5 pe-5">
+                    <a class="nav-link active text-uppercase text-white me-5 pe-5" aria-current="page"
+                        href=""><small>dc
+                            power&#8482; visa&#174;</small></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-uppercase text-white" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <small>
+                            additional dc sites
+                        </small>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">link 1</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
     <nav class="navbar container navbar-expand-lg">
         <div class="container">

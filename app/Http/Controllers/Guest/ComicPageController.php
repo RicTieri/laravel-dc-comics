@@ -22,7 +22,6 @@ class ComicPageController extends Controller
      */
     public function create()
     {
-        return view('pages.guest.comicCreate');
     }
 
     /**
@@ -30,22 +29,13 @@ class ComicPageController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        // dd($formData);
-        $data['artists'] = json_decode($data['artists']);
-        $data['writers'] = json_decode($data['writers']);
-        $comic = Comic::create($data);
-
-        return redirect()->route('guest.comic.show', $comic->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
     {
-        $comic = Comic::findOrFail($id);
-        // dd($comic);
         $comic->artists = json_decode($comic->artists);
         $comic->writers = json_decode($comic->writers);
         return view('pages.guest.comicShow', compact('comic'));

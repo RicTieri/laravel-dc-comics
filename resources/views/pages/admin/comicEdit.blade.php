@@ -13,6 +13,17 @@
     </div>
     <section class="comics container-fluid p-5">
         <div class="row justify-content-center">
+            @if ($errors->any())
+                <div class="col-10 px-5">
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
             <div class="col-10">
                 <form action="{{ route('admin.comic.update', $comic->id) }}" method="post" class="m-5 text-white">
                     @csrf

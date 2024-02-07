@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicPageController extends Controller
 {
@@ -30,6 +31,10 @@ class ComicPageController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => ['required', 'unique:comics', 'min:5', 'max:50'],
+        ]);
+
         $data = $request->all();
         $artists = [];
         $artists[] = $data['artists'];
@@ -67,6 +72,9 @@ class ComicPageController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $request->validate([
+            'title' => ['required', 'min:5', 'max:50', Rule::unique('comics')->ignore($comic)],
+        ]);
         $data = $request->all();
         $comic->update($data);
 
